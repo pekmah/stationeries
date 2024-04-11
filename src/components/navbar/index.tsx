@@ -65,4 +65,8 @@ const navList: NavListItem[] = [
     href: "#contact",
     name: "Contact",
   },
+  {
+    href: "/",
+    name: "Products",
+  },
 ];
