@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 
 import Navbar from "@/components/navbar";
+import { Footer } from "@/components";
 
 const Wrapper = ({
   children,
@@ -14,6 +15,8 @@ const Wrapper = ({
       <Navbar />
 
       {children}
+
+      <Footer />
     </main>
   );
 };
