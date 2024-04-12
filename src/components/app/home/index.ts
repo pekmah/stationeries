@@ -1,5 +1,5 @@
 import ServiceSection from "./service";
-import CarouselSection from "./carousel";
+import HeroSection from "./hero";
 import ContactSection from "./contact";
 
-export { ServiceSection, CarouselSection, ContactSection };
+export { ServiceSection, HeroSection, ContactSection };

@@ -1,6 +1,6 @@
 import {
-  CarouselSection,
   ContactSection,
+  HeroSection,
   ServiceSection,
   Wrapper,
 } from "@/components";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Wrapper>
       {/*  carousel  */}
-      <CarouselSection />
+      <HeroSection />
 
       {/* Services section */}
       <ServiceSection />

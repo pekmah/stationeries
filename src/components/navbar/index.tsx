@@ -3,8 +3,12 @@ import Image from "next/image";
 import NavItem from "@/components/navbar/NavItem";
 import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
+import HomeServices from "@/services/HomeServices";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const homeData = await HomeServices.getHomeData();
+  const { title } = homeData;
+
   return (
     <nav className={"text-black bg-gray-50 h-20 flex justify-center font-rail"}>
       <Container className={"h-full flex items-center justify-between"}>
@@ -19,7 +23,7 @@ const Navbar = () => {
           />
 
           <h3 className={"font-bold text-xl tracking-wider hidden md:block"}>
-            Stationery
+            {title}
           </h3>
         </div>
 
