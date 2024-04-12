@@ -50,3 +50,5 @@ export const generateImageUrl = (url: string): string => {
 
   return process.env.NEXT_PUBLIC_STRAPI_API + url;
 };
+
+export const isEven = (num: number): boolean => num % 2 === 0;

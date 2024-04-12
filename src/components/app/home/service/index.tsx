@@ -1,25 +1,31 @@
 import React from "react";
-import { Container } from "@/components";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-const ServiceSection = () => {
+import { Container } from "@/components";
+import { Button } from "@/components/ui/button";
+import HomeServices from "@/services/HomeServices";
+import { isEven } from "@/lib/utils";
+
+const ServiceSection = async () => {
+  const { services } = await HomeServices.getHomeData();
+
   return (
     <>
-      {serviceList.map(
-        (
-          { imageUrl, title, body = "", btn = "", containerClassName = "" },
-          index
-        ) => (
+      {services?.map(({ image, title, body = "", link }, index) => {
+        const containerClassName = isEven(index)
+          ? "md:flex-row"
+          : "md:flex-row-reverse";
+        return (
           <section className={"flex p-5 md:p-20"} key={index}>
             <Container
-              className={`flex flex-col md:flex-row space-y-5 md:space-y-0 ${containerClassName}`}
+              className={`flex flex-col space-y-5 md:space-y-0 ${containerClassName}`}
             >
               {/*image*/}
               <div className={"flex-1 flex"}>
                 <Image
-                  src={imageUrl}
-                  alt={"exam"}
+                  src={image.url}
+                  alt={"service"}
                   className={
                     "w-full md:w-5/6 md:max-w-[35vw] object-cover rounded-xl max-h-[400px]"
                   }
@@ -40,19 +46,21 @@ const ServiceSection = () => {
                   {body}
                 </p>
 
-                <Button
-                  variant={"outline"}
-                  className={
-                    "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
-                  }
-                >
-                  {btn}
-                </Button>
+                <Link href={link.url}>
+                  <Button
+                    variant={"outline"}
+                    className={
+                      "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
+                    }
+                  >
+                    {link.text}
+                  </Button>
+                </Link>
               </div>
             </Container>
           </section>
-        )
-      )}
+        );
+      })}
     </>
   );
 };

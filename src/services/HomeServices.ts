@@ -1,5 +1,6 @@
 import { flattenAttributes } from "@/lib/utils";
 import { HomeProps } from "@/types/home";
+import { link } from "fs";
 import qs from "qs";
 
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_API;
@@ -17,6 +18,16 @@ const homePageQuery = qs.stringify({
         },
       },
     },
+    services: {
+      populate: {
+        image: {
+          fields: ["url", "alternativeText"],
+        },
+        link: {
+          populate: true,
+        },
+      },
+    },
   },
 });
 
@@ -26,8 +37,13 @@ export const getHomeData = async (): Promise<HomeProps> => {
 
   const response = await fetch(url.href, { cache: "no-store" });
 
+  if (!response.ok) throw new Error("Failed to fetch home data");
+
   //   flatten data
-  return await flattenAttributes(await response.json());
+  // removes unnecessary nesting(.attributes, .data, .relationships) from the response
+  const res = await flattenAttributes(await response.json());
+
+  return res;
 };
 
 const HomeServices = {

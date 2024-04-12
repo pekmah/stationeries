@@ -5,6 +5,7 @@ import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
 import HomeServices from "@/services/HomeServices";
 import { generateImageUrl } from "@/lib/utils";
+import Link from "next/link";
 
 const Navbar = async () => {
   const homeData = await HomeServices.getHomeData();
@@ -14,7 +15,7 @@ const Navbar = async () => {
     <nav className={"text-black bg-gray-50 h-20 flex justify-center font-rail"}>
       <Container className={"h-full flex items-center justify-between"}>
         {/*logo*/}
-        <div className={"flex flex-1 gap-3 items-center"}>
+        <Link className={"flex flex-1 gap-3 items-center"} href={"/"}>
           <Image
             src={generateImageUrl(logo.url) || "/images/logo.png"}
             alt="Logo"
@@ -26,11 +27,11 @@ const Navbar = async () => {
           <h3 className={"font-bold text-xl tracking-wider hidden md:block"}>
             {title}
           </h3>
-        </div>
+        </Link>
 
         {/* nav options */}
         <div className={"flex justify-between flex-1 items-center"}>
-          <ul className={"flex gap-8"}>
+          <ul className={"flex gap-4 md:gap-8"}>
             {navList.map((item, index) => (
               <NavItem key={index} href={item.href} name={item.name} />
             ))}

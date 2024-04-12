@@ -23,6 +23,15 @@ interface BlockProps {
   link: LinkProps;
 }
 
+interface ServiceProps {
+  id: number;
+  __component: string;
+  title: string;
+  body: string;
+  image: ImageProps;
+  link: LinkProps;
+}
+
 export interface HomeProps {
   id: number;
   title: string;
@@ -32,4 +41,5 @@ export interface HomeProps {
   publishedAt: string;
   blocks: BlockProps[];
   logo: LogoProps;
+  services: ServiceProps[];
 }
