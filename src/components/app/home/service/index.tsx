@@ -9,7 +9,7 @@ const ServiceSection = () => {
       {serviceList.map(
         (
           { imageUrl, title, body = "", btn = "", containerClassName = "" },
-          index,
+          index
         ) => (
           <section className={"flex p-5 md:p-20"} key={index}>
             <Container
@@ -43,7 +43,7 @@ const ServiceSection = () => {
                 <Button
                   variant={"outline"}
                   className={
-                    "border-black hover:border-c_primary hover:bg-c_primary mt-3 text-black hover:text-white bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
+                    "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
                   }
                 >
                   {btn}
@@ -51,7 +51,7 @@ const ServiceSection = () => {
               </div>
             </Container>
           </section>
-        ),
+        )
       )}
     </>
   );

@@ -3,6 +3,11 @@ interface ImageProps {
   alternativeText: string;
 }
 
+interface LogoProps {
+  url: string;
+  alternativeText: string;
+}
+
 interface LinkProps {
   id: number;
   url: string;
@@ -26,4 +31,5 @@ export interface HomeProps {
   updatedAt: string;
   publishedAt: string;
   blocks: BlockProps[];
+  logo: LogoProps;
 }

@@ -36,7 +36,7 @@ const Contact = () => {
           <Button
             variant={"outline"}
             className={
-              "border-white hover:border-c_primary uppercase hover:bg-c_primary text-white hover:text-white my-8 bg-transparent text-base rounded-full mx-auto px-8 py-5 md:mr-auto w-full md:w-56 h-12"
+              "border-white text-[15px] font-semibold hover:text-black border hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary  bg-c_primary uppercase  text-white my-8 bg-transparent text-base rounded-full mx-auto px-8 py-5 md:mr-auto w-full md:w-56 h-12"
             }
           >
             Send

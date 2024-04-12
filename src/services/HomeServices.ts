@@ -6,6 +6,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_API;
 
 const homePageQuery = qs.stringify({
   populate: {
+    logo: { fields: ["url", "alternativeText"] },
     blocks: {
       populate: {
         Image: {

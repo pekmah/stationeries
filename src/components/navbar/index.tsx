@@ -4,10 +4,11 @@ import NavItem from "@/components/navbar/NavItem";
 import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
 import HomeServices from "@/services/HomeServices";
+import { generateImageUrl } from "@/lib/utils";
 
 const Navbar = async () => {
   const homeData = await HomeServices.getHomeData();
-  const { title } = homeData;
+  const { title, logo } = homeData;
 
   return (
     <nav className={"text-black bg-gray-50 h-20 flex justify-center font-rail"}>
@@ -15,9 +16,9 @@ const Navbar = async () => {
         {/*logo*/}
         <div className={"flex flex-1 gap-3 items-center"}>
           <Image
-            src="/images/logo.png"
+            src={generateImageUrl(logo.url) || "/images/logo.png"}
             alt="Logo"
-            className="w-12 md:w-14 object-contain rounded-full"
+            className="object-contain w-12 rounded-full md:w-14"
             height={400}
             width={200}
           />
@@ -36,12 +37,11 @@ const Navbar = async () => {
           </ul>
 
           <Button
-            variant={"outline"}
             className={
-              "hidden md:flex border-white hover:border-c_primary hover:bg-c_primary text-white hover:text-white bg-c_primary text-sm rounded-full mx-auto px-8 md:mr-auto"
+              "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
             }
           >
-            shop
+            shop with us
           </Button>
         </div>
       </Container>

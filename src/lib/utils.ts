@@ -46,5 +46,7 @@ export function flattenAttributes(data: any): any {
 }
 
 export const generateImageUrl = (url: string): string => {
+  if (url.startsWith("http")) return url;
+
   return process.env.NEXT_PUBLIC_STRAPI_API + url;
 };
