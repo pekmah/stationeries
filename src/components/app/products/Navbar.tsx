@@ -20,9 +20,7 @@ const ProductNav = ({ title }: { title: string }) => {
 
         {/*logo*/}
         <Link className={"flex flex-1 gap-3 items-center"} href={"/"}>
-          <h3 className={"font-bold text-xl tracking-wider hidden md:block"}>
-            {title}
-          </h3>
+          <h3 className={"font-bold text-xl tracking-wider"}>{title}</h3>
         </Link>
       </Container>
     </nav>
