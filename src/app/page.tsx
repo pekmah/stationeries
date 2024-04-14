@@ -13,9 +13,6 @@ export default function Home() {
 
       {/* Services section */}
       <ServiceSection />
-
-      {/*contact section*/}
-      <ContactSection />
     </Wrapper>
   );
 }

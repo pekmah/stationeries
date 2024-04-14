@@ -11,7 +11,7 @@ const ServiceSection = async () => {
   const { services } = await HomeServices.getHomeData();
 
   return (
-    <>
+    <div id="about">
       {services?.map(({ image, title, body = "", link }, index) => {
         const containerClassName = isEven(index)
           ? "md:flex-row"
@@ -61,7 +61,7 @@ const ServiceSection = async () => {
           </section>
         );
       })}
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   return (
-    <section className={"flex bg-c_secondary font-rail p-5 md:p-12  "}>
+    <section
+      id="contact"
+      className={"flex bg-c_secondary font-rail p-5 md:p-12"}
+    >
       <Container>
         <h2 className={"text-3xl text-white font-bold text-center mb-10"}>
           Contact us

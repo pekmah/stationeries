@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Raleway } from "next/font/google";
 
 import "./globals.css";
+import GlobalServices from "@/services/GlobalServices";
 
 const inter = Inter({ subsets: ["latin"] });
 const rail = Raleway({
@@ -9,10 +10,13 @@ const rail = Raleway({
   variable: "--font-rail",
 });
 
-export const metadata: Metadata = {
-  title: "Stationery Central",
-  description:
-    "Stationery Central is your one-stop-shop for all your children's stationery needs. We offer a wide range of fun, colorful, and educational stationery items that inspire creativity and learning. Join us in making learning a colorful and exciting journey for your little ones!",
+export const generateMetadata = async (): Promise<Metadata> => {
+  const metaData = await GlobalServices.getMetaData();
+
+  return {
+    title: metaData.title,
+    description: metaData.description,
+  };
 };
 
 export default function RootLayout({

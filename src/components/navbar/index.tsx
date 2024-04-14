@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import NavItem from "@/components/navbar/NavItem";
 import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
 import HomeServices from "@/services/HomeServices";
 import { generateImageUrl } from "@/lib/utils";
-import Link from "next/link";
 
 const Navbar = async () => {
   const homeData = await HomeServices.getHomeData();
@@ -59,11 +60,11 @@ interface NavListItem {
 
 const navList: NavListItem[] = [
   {
-    href: "",
+    href: "/",
     name: "Home",
   },
   {
-    href: "#about",
+    href: "/#about",
     name: "About",
   },
   {
@@ -71,7 +72,7 @@ const navList: NavListItem[] = [
     name: "Contact",
   },
   {
-    href: "/",
+    href: "/products",
     name: "Products",
   },
 ];
