@@ -4,9 +4,11 @@ import { Container, InputWithLabel, TextareaWithLabel } from "@/components";
 import { Button } from "@/components/ui/button";
 import { SendEmailAction } from "@/actions/SendEmailAction";
 import { useToast } from "@/components/ui/use-toast";
+import { useRef } from "react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function formAction(formData: FormData) {
     const result = await SendEmailAction(formData);
@@ -16,6 +18,7 @@ const Contact = () => {
         title: "Email sent!",
         description: "Email sent successfully.",
       });
+      formRef.current?.reset();
     } else {
       toast({
         variant: "destructive",
@@ -34,7 +37,7 @@ const Contact = () => {
           Contact us
         </h2>
 
-        <form className={"flex flex-col"} action={formAction}>
+        <form ref={formRef} className={"flex flex-col"} action={formAction}>
           <div className={"flex flex-col md:flex-row gap-5 text-white"}>
             <div className={"flex-1 flex flex-col items-end gap-5 "}>
               <InputWithLabel
