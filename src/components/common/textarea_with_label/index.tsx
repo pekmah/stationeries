@@ -1,7 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
-import IntrinsicAttributes = React.JSX.IntrinsicAttributes;
 
 function TextareaWithLabel({ label, ...rest }: InputProps) {
   return (
@@ -14,10 +13,6 @@ function TextareaWithLabel({ label, ...rest }: InputProps) {
 
 export default TextareaWithLabel;
 
-export interface InputProps extends IntrinsicAttributes {
+interface InputProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
-  placeholder?: string;
-  type?: string;
-  handleChange?: () => {};
-  value?: string;
 }

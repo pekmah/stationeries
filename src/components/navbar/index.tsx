@@ -7,10 +7,13 @@ import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
 import HomeServices from "@/services/HomeServices";
 import { generateImageUrl } from "@/lib/utils";
+import GlobalServices from "@/services/GlobalServices";
 
 const Navbar = async () => {
   const homeData = await HomeServices.getHomeData();
   const { title, logo } = homeData;
+
+  const contacts = await GlobalServices.getContacts();
 
   return (
     <nav className={"text-black bg-gray-50 h-20 flex justify-center font-rail"}>
@@ -38,13 +41,19 @@ const Navbar = async () => {
             ))}
           </ul>
 
-          <Button
-            className={
-              "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
-            }
+          <a
+            href={`https://wa.me/${contacts.whatsapp_number}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            shop with us
-          </Button>
+            <Button
+              className={
+                "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
+              }
+            >
+              whatsapp
+            </Button>
+          </a>
         </div>
       </Container>
     </nav>

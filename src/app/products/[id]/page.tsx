@@ -3,7 +3,7 @@ import Image from "next/image";
 interface Params {
   id: string;
 }
-import { Footer, ProductNav, Wrapper } from "@/components";
+import { Container, Footer, ProductNav, Wrapper } from "@/components";
 export const Page = async ({ params }: { params: Params }) => {
   const currentProduct = await ProductServices.getProductCatalogues(params.id);
 
@@ -12,7 +12,7 @@ export const Page = async ({ params }: { params: Params }) => {
       hasNav={false}
       nav={<ProductNav title={currentProduct.name + " Gallery"} />}
     >
-      <main className="min-h-[50vh] p-5 columns-1 sm:columns-2 md:columns-3 lg:columns-3 xl:columns-5 [&>img:not(:first-child)]:mt-5">
+      <Container className="min-h-[50vh] p-5 columns-1 sm:columns-2 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-5">
         {currentProduct.catalogues.data.map((catalogue, index) => (
           <Image
             key={index}
@@ -23,13 +23,9 @@ export const Page = async ({ params }: { params: Params }) => {
             alt="product"
           />
         ))}
-      </main>
+      </Container>
     </Wrapper>
   );
-};
-
-Page.getLayout = function getLayout() {
-  return <div>hello</div>;
 };
 
 export default Page;

@@ -1,6 +1,5 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { InputProps } from "@/components/common/textarea_with_label";
 
 function InputWithLabel({ label, ...rest }: InputProps) {
   return (
@@ -12,3 +11,7 @@ function InputWithLabel({ label, ...rest }: InputProps) {
 }
 
 export default InputWithLabel;
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}

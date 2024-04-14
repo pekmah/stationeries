@@ -52,3 +52,7 @@ export const generateImageUrl = (url: string): string => {
 };
 
 export const isEven = (num: number): boolean => num % 2 === 0;
+
+export const openWhatsappContact = (number: string): void => {
+  if (number) window.open(`https://wa.me/${number}`);
+};
