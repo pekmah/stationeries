@@ -4,7 +4,7 @@ import { Container, ProductNav, Wrapper } from "@/components";
 interface Params {
   id: string;
 }
-export const product = async ({ params }: { params: Params }) => {
+const product = async ({ params }: { params: Params }) => {
   const currentProduct = await ProductServices.getProductCatalogues(params.id);
 
   return (
