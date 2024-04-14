@@ -1,10 +1,10 @@
 import ProductServices from "@/services/ProductServices";
 import Image from "next/image";
+import { Container, ProductNav, Wrapper } from "@/components";
 interface Params {
   id: string;
 }
-import { Container, Footer, ProductNav, Wrapper } from "@/components";
-export const Page = async ({ params }: { params: Params }) => {
+export const product = async ({ params }: { params: Params }) => {
   const currentProduct = await ProductServices.getProductCatalogues(params.id);
 
   return (
@@ -28,4 +28,4 @@ export const Page = async ({ params }: { params: Params }) => {
   );
 };
 
-export default Page;
+export default product;

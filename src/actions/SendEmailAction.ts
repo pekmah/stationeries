@@ -10,7 +10,7 @@ export async function SendEmailAction(formData: FormData): Promise<any> {
     service: "gmail", // use 'gmail' or any other service you prefer
     auth: {
       user: process.env.NEXT_PUBLIC_MAIL_USER, // replace with your email
-      pass: process.env.NEXT_PUBLIC_MAIL_PASSWORD, // replace with your password
+      pass: process.env.NEXT_PUBLIC_MAIL_KEY, // replace with your password
     },
   });
 
