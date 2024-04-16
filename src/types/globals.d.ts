@@ -12,3 +12,9 @@ export type ContactProps = {
   email: string;
   whatsapp_number: string;
 };
+
+export type PhoneNumberProps = {
+  id: number;
+  __component: string;
+  phone_number: string;
+};

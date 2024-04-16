@@ -4,6 +4,7 @@ import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import GlobalServices from "@/services/GlobalServices";
 import { Toaster } from "@/components/ui/toaster";
+import Whatsapp from "@/components/app/Whatsapp";
 
 const inter = Inter({ subsets: ["latin"] });
 const rail = Raleway({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${rail.className}`}>{children}</body>
 
       <Toaster />
+      <Whatsapp />
     </html>
   );
 }

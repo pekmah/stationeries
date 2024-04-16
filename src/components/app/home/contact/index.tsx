@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { SendEmailAction } from "@/actions/SendEmailAction";
 import { useToast } from "@/components/ui/use-toast";
 import { useRef } from "react";
+import { Mail, Phone } from "lucide-react";
+import ContactsCard from "./ContactsCard";
+import GlobalServices from "@/services/GlobalServices";
+import ContactDetails from "./ContactDetails";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -81,6 +85,8 @@ const Contact = () => {
             Send
           </Button>
         </form>
+
+        <ContactDetails />
       </Container>
     </section>
   );

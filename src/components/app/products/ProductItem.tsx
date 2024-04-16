@@ -21,7 +21,7 @@ const ProductItem = (props: ProductItemProps) => {
         <h5 className="font-semibold">{props.name}</h5>
 
         {/* price */}
-        <h6 className="text-base text-gray-600">{props.price} kes</h6>
+        {/* <h6 className="text-base text-gray-600">{props.price} kes</h6> */}
 
         {/* button */}
         <Link href={props.link}>
