@@ -48,7 +48,7 @@ const Navbar = async () => {
           >
             <Button
               className={
-                "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
+                "text-[15px] font-semibold text-white border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-white bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
               }
             >
               whatsapp

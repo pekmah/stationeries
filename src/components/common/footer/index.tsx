@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer
       className={
-        "p-3 border-t border-slate-500 bg-c_secondary text-white text-xs md:text-sm text-center lowercase"
+        "p-3 border-t border-slate-500 bg-c_secondary text-black text-xs md:text-sm text-center lowercase"
       }
     >
       <Container>

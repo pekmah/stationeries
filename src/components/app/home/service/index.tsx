@@ -50,7 +50,7 @@ const ServiceSection = async () => {
                   <Button
                     variant={"outline"}
                     className={
-                      "text-[15px] font-semibold text-black border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-black bg-c_primary bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
+                      "text-[15px] font-semibold text-black hover:text-white border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary bg-c_primary bg-transparent text-sm rounded-full px-8 py-3 mr-auto"
                     }
                   >
                     {link.text}
