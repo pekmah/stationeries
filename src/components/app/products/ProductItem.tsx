@@ -28,7 +28,7 @@ const ProductItem = (props: ProductItemProps) => {
           <Button
             variant={"outline"}
             className={
-              "text-[13px] font-medium text-black border border-slate-400 ease-in-out transition-all duration-200 group-hover:bg-c_primary group-hover:text-black bg-c_primary bg-transparent rounded-full px-5 py-2 mr-auto h-8 mt-2"
+              "text-[13px] font-medium text-black border border-slate-400 ease-in-out transition-all duration-200 group-hover:bg-c_primary group-hover:text-white bg-c_primary bg-transparent rounded-full px-5 py-2 mr-auto h-8 mt-2"
             }
           >
             view more
