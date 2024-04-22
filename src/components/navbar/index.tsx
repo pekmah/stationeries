@@ -1,44 +1,59 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import NavItem from "@/components/navbar/NavItem";
 import { Container } from "@/components";
 import { Button } from "@/components/ui/button";
+import HomeServices from "@/services/HomeServices";
+import { generateImageUrl } from "@/lib/utils";
+import GlobalServices from "@/services/GlobalServices";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const homeData = await HomeServices.getHomeData();
+  const { title, logo } = homeData;
+
+  const contacts = await GlobalServices.getContacts();
+
   return (
     <nav className={"text-black bg-gray-50 h-20 flex justify-center font-rail"}>
       <Container className={"h-full flex items-center justify-between"}>
         {/*logo*/}
-        <div className={"flex flex-1 gap-3 items-center"}>
+        <Link className={"flex flex-1 gap-3 items-center"} href={"/"}>
           <Image
-            src="/images/logo.png"
+            src={generateImageUrl(logo.url) || "/images/logo.png"}
             alt="Logo"
-            className="w-12 md:w-14 object-contain rounded-full"
+            className="object-contain w-12 rounded-full md:w-14"
             height={400}
             width={200}
           />
 
           <h3 className={"font-bold text-xl tracking-wider hidden md:block"}>
-            Stationery
+            {title}
           </h3>
-        </div>
+        </Link>
 
         {/* nav options */}
         <div className={"flex justify-between flex-1 items-center"}>
-          <ul className={"flex gap-8"}>
+          <ul className={"flex gap-4 md:gap-8"}>
             {navList.map((item, index) => (
               <NavItem key={index} href={item.href} name={item.name} />
             ))}
           </ul>
 
-          <Button
-            variant={"outline"}
-            className={
-              "hidden md:flex border-white hover:border-c_primary hover:bg-c_primary text-white hover:text-white bg-c_primary text-sm rounded-full mx-auto px-8 md:mr-auto"
-            }
+          <a
+            href={`https://wa.me/${contacts.whatsapp_number}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            shop
-          </Button>
+            <Button
+              className={
+                "text-[15px] font-semibold text-white border border-slate-400 hover:scale-105 ease-in-out transition-all duration-200 hover:bg-c_primary hover:text-white bg-c_primary hidden md:flex rounded-full mx-auto px-8 md:mr-auto"
+              }
+            >
+              whatsapp
+            </Button>
+          </a>
         </div>
       </Container>
     </nav>
@@ -54,15 +69,19 @@ interface NavListItem {
 
 const navList: NavListItem[] = [
   {
-    href: "",
+    href: "/",
     name: "Home",
   },
   {
-    href: "#about",
+    href: "/#about",
     name: "About",
   },
   {
     href: "#contact",
     name: "Contact",
+  },
+  {
+    href: "/products",
+    name: "Products",
   },
 ];
